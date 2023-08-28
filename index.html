@@ -18,7 +18,31 @@
         let randomChoice = getComputerChoice(computerChoice);
         console.log(randomChoice);
     
-    
+        function playRound(playerSelection, computerSelection) {
+            // Convert both selections to lowercase to ensure case-insensitive comparison
+            const playerChoice = playerSelection.toLowerCase();
+            const computerChoice = computerSelection.toLowerCase();
+        
+            // Check for valid player selection
+            if (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
+                return "Invalid selection. Please choose 'rock', 'paper', or 'scissors'.";
+            }
+        
+            // Determine the winner
+            if (playerChoice === computerChoice) {
+                return "It's a tie!";
+            } else if (
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                return `You Win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
+            } else {
+                return `You Lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`;
+            }
+        }
+
+
     </script>
     
 </body>

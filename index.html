@@ -9,39 +9,52 @@
 
     <script>
 
-        function getComputerChoice(computerChoice) {
-            const computerSelection = Math.floor(Math.random() * computerChoice.length);
-            return computerChoice[computerSelection];
+        function getComputerChoice() {
+            const choices = ['Rock', 'Paper', 'Scissors'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
           }
-        
-        let computerChoice = ["Rock", "Paper", "Scissors"];
-        let randomChoice = getComputerChoice(computerChoice);
-        console.log(randomChoice);
-    
+
         function playRound(playerSelection, computerSelection) {
             // Convert both selections to lowercase to ensure case-insensitive comparison
             const playerChoice = playerSelection.toLowerCase();
             const computerChoice = computerSelection.toLowerCase();
         
-            // Check for valid player selection
-            if (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
-                return "Invalid selection. Please choose 'rock', 'paper', or 'scissors'.";
-            }
-        
-            // Determine the winner
+            // While loop to Determine the winner
+            // If player choice equals computer choice return "It's a tie"
             if (playerChoice === computerChoice) {
                 return "It's a tie!";
-            } else if (
+    
+            } else if ( // else Player and computer choices with the logical operator
+            // player choice equals rock and computer choice equals scissors or
                 (playerChoice === 'rock' && computerChoice === 'scissors') ||
+            // player choice equals paper and computer choice equals rock or
                 (playerChoice === 'paper' && computerChoice === 'rock') ||
+            // player choice equals scissors and computer choice equals paper 
                 (playerChoice === 'scissors' && computerChoice === 'paper')
             ) {
+            // Return "You win" (with template literal) (player's choice) beats (respective computer choice)
+            // Paper beats rock, rock beats scissors, scissors beats paper
                 return `You Win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
             } else {
+            // Return "You lose" (with template literal) (player's choice) beats (respective computer choice)
                 return `You Lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`;
             }
         }
 
+function getComputerChoice(computerChoice) {
+    const computerSelection = Math.floor(Math.random() * computerChoice.length);
+    return computerChoice[computerSelection];
+  }
+
+let computerChoice = ["Rock", "Paper", "Scissors"];
+let randomChoice = getComputerChoice(computerChoice);
+console.log(randomChoice);
+
+ // Check for valid player selection
+ if (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
+    return "Invalid selection. Please choose 'rock', 'paper', or 'scissors'.";
+}
 
     </script>
     

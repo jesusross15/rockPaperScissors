@@ -42,20 +42,34 @@
             }
         }
 
-function getComputerChoice(computerChoice) {
-    const computerSelection = Math.floor(Math.random() * computerChoice.length);
-    return computerChoice[computerSelection];
-  }
-
-let computerChoice = ["Rock", "Paper", "Scissors"];
-let randomChoice = getComputerChoice(computerChoice);
-console.log(randomChoice);
-
- // Check for valid player selection
- if (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
-    return "Invalid selection. Please choose 'rock', 'paper', or 'scissors'.";
-}
-
+        function game() {
+            let playerScore = 0;
+            let computerScore = 0;
+          
+            for (let i = 0; i < 5; i++) {
+              const playerChoice = prompt("Let's play Rock Paper Scissors! Enter your choice (Rock/Paper/Scissors):");
+              const computerChoice = getComputerChoice();
+              const roundResult = playRound(playerChoice, computerChoice);
+              console.log(roundResult);
+          
+              if (roundResult.includes("Win")) {
+                playerScore++;
+              } else if (roundResult.includes("Lose")) {
+                computerScore++;
+              }
+            }
+          
+            if (playerScore > computerScore) {
+              console.log("You win the game!");
+            } else if (computerScore > playerScore) {
+              console.log("You lose the game.");
+            } else {
+              console.log("It's a tie! The game is a draw.");
+            }
+          }
+          
+          // Start the game
+          game();
     </script>
     
 </body>

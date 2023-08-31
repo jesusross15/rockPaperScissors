@@ -7,70 +7,72 @@
 </head>
 <body>
 
-    <script>
+<script>
+    // Start with a function that randomly gets computer choices
+    // Choices are Rock Paper or Scissors
+    // Choose at random
+    // Return the computer's choice
+    function getComputerChoice() {
+        const choices = ['Rock', 'Paper', 'Scissors'];
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        return choices[randomIndex];
+    }
 
-        function getComputerChoice() {
-            const choices = ['Rock', 'Paper', 'Scissors'];
-            const randomIndex = Math.floor(Math.random() * choices.length);
-            return choices[randomIndex];
-          }
+    // Function that plays single round of RPS
+    // Function has 2 parameters playerSelection and computerSelection
+    // If both player choice and computer choice are the same return "It's a tie!"
+    // If playerSelection is rock and computer choice is scissors return "You win! Rock beats Scissors"
+    // If playerSelection is scissors and computer choise is paper return "You win! Scissors beats Paper"
+    // If playerchoise is rock and computer choice is paper return "You lose! paper beats rock"
+    // If playerSelection is paper and computer choice is scissors return "You lose! Scissors beats Paper"
+    // Returns string (use of template literal) that declares winner of the round
+    // You win! 
+    // You lose! 
 
-        function playRound(playerSelection, computerSelection) {
-            // Convert both selections to lowercase to ensure case-insensitive comparison
-            const playerChoice = playerSelection.toLowerCase();
-            const computerChoice = computerSelection.toLowerCase();
+    function playRound(playerSelection, computerSelection) {
         
-            // While loop to Determine the winner
-            // If player choice equals computer choice return "It's a tie"
-            if (playerChoice === computerChoice) {
-                return "It's a tie!";
-    
-            } else if ( // else Player and computer choices with the logical operator
-            // player choice equals rock and computer choice equals scissors or
-                (playerChoice === 'rock' && computerChoice === 'scissors') ||
-            // player choice equals paper and computer choice equals rock or
-                (playerChoice === 'paper' && computerChoice === 'rock') ||
-            // player choice equals scissors and computer choice equals paper 
-                (playerChoice === 'scissors' && computerChoice === 'paper')
-            ) {
-            // Return "You win" (with template literal) (player's choice) beats (respective computer choice)
-            // Paper beats rock, rock beats scissors, scissors beats paper
-                return `You Win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
-            } else {
-            // Return "You lose" (with template literal) (player's choice) beats (respective computer choice)
-                return `You Lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`;
-            }
+        if (playerSelection === computerSelection) {
+            return "It's a tie!";
+        } else if (
+            (playerSelection === 'rock' && computerSelection === 'scissors') ||
+            (playerSelection === 'paper' && computerSelection === 'rock') ||
+            (playerSelection === 'scissors' && computerSelection === 'paper')
+        ) {
+            return `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}.`;
+        } else {
+            return `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}.`;
         }
+    }
+    // Call function to check if the result is what we want (it is)
+    const playerSelection = "rock";
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
 
-        function game() {
-            let playerScore = 0;
-            let computerScore = 0;
-          
-            for (let i = 0; i < 5; i++) {
-              const playerChoice = prompt("Let's play Rock Paper Scissors! Enter your choice (Rock/Paper/Scissors):");
-              const computerChoice = getComputerChoice();
-              const roundResult = playRound(playerChoice, computerChoice);
-              console.log(roundResult);
-          
-              if (roundResult.includes("Win")) {
+    function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+    }
+
+        for (let i = 0; i < 5; i++) {
+            const playerSelection = prompt("Let's play Rock Paper Scissors! Enter your choice (Rock/Paper/Scissors):");
+            const computerSelection = getComputerChoice();
+            const roundResult = playRound(playerSelection, computerSelection);
+            console.log(roundResult);
+        
+            if (roundResult.includes("Win")) {
                 playerScore++;
-              } else if (roundResult.includes("Lose")) {
+            } else if (roundResult.includes("Lose")) {
                 computerScore++;
-              }
             }
-          
-            if (playerScore > computerScore) {
-              console.log("You win the game!");
-            } else if (computerScore > playerScore) {
-              console.log("You lose the game.");
-            } else {
-              console.log("It's a tie! The game is a draw.");
             }
-          }
-          
-          // Start the game
-          game();
-    </script>
+        if (playerScore > computerScore) {
+        console.log("You win the game!");
+        } else if (computerScore > playerScore) {
+        console.log("You lose the game.");
+        } else {
+        console.log("It's a tie! The game is a draw.");
+        }
+</script>
     
 </body>
 </html>

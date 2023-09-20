@@ -19,21 +19,21 @@
 
     function playRound(playerSelection, computerSelection) {
         // Convert both selections to lowercase to ensure case-insensitive comparison
-        const playerChoice = playerSelection.toLowerCase();
-        const computerChoice = computerSelection.toLowerCase();
+        // const playerChoice = playerSelection.toLowerCase();
+        // const computerChoice = computerSelection.toLowerCase();
     
-        if (playerChoice === computerChoice) {
+        if (playerSelection === computerSelection) {
             return "It's a tie!";
     
         } else if (
-            (playerChoice === 'rock' && computerChoice === 'scissors') ||
-            (playerChoice === 'paper' && computerChoice === 'rock') ||
-            (playerChoice === 'scissors' && computerChoice === 'paper')
+            (playerSelection === 'rock' && computerSelection === 'scissors') ||
+            (playerSelection === 'paper' && computerSelection === 'rock') ||
+            (playerSelection === 'scissors' && computerSelection === 'paper')
         ) {
-            return `You Win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
+            return `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}.`;
 
         } else {
-            return `You Lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`;
+            return `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}.`;
         }
     }
     // Call function to check if the result is what we want (it is)

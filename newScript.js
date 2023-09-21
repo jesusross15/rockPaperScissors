@@ -38,12 +38,12 @@ function playRound(playerSelection) {
             + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
 
         if (playerScore == 5) {
-            result += '<br><br>You won the game! Reload the page to play again'
+            result += '<br><br>CONGRATS! You won the game! Reload the page to play again'
             disableButtons()
         }
     }
     else if (playerSelection == computerSelection) {
-        result = ('It\'s a tie. You both chose ' + playerSelection
+        result = ('It\'s a tie. You and the computer both chose ' + playerSelection
             + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
     }
     else {
@@ -52,7 +52,7 @@ function playRound(playerSelection) {
             + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
 
         if (computerScore == 5) {
-            result += '<br><br>I won the game! Reload the page to play again'
+            result += '<br><br>You LOST! HAHAHAHA! Reload the page to play again'
             disableButtons()
         }
     }

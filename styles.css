@@ -1,1 +1,39 @@
-import url()
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(254, 243, 222);
+    background-color: blue;
+}
+
+img {
+    border-radius: 10%;
+    width: 200px;
+    height: 200px;
+}
+
+button {
+    border-radius: 10%;
+}
+
+.div {
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    border-radius: 10%;
+}
+button:hover{
+    transform: scale(1.1);
+}
+
+
+footer{
+    background-color: gray;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+
+}

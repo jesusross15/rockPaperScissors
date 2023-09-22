@@ -34,7 +34,7 @@ function playRound(playerSelection) {
         (playerSelection == "paper" && computerSelection == "rock"))
     {
         playerScore += 1
-        result = ('You win! ' + playerSelection + ' beats ' + computerSelection
+        result = ('You win this round! ' + playerSelection + ' beats ' + computerSelection
             + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
 
         if (playerScore == 5) {

@@ -6,7 +6,7 @@ const buttons = document.querySelectorAll('button')
 // Choices are Rock Paper or Scissors
 // Choose Rock Paper or Scissors at random
 function computerPlay() {
-    let choices = ["rock", "paper", "scissors"]
+    let choices = ["Rock", "Paper", "Scissors"]
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
@@ -29,30 +29,30 @@ function playRound(playerSelection) {
     let computerSelection = computerPlay()
     let result = ""
 
-    if ((playerSelection == "rock" && computerSelection == "scissors") ||
-        (playerSelection == "scissors" && computerSelection == "paper") ||
-        (playerSelection == "paper" && computerSelection == "rock"))
+    if ((playerSelection == "Rock" && computerSelection == "Scissors") ||
+        (playerSelection == "Scissors" && computerSelection == "Paper") ||
+        (playerSelection == "Paper" && computerSelection == "Rock"))
     {
         playerScore += 1
-        result = ('You win this round! ' + playerSelection + ' beats ' + computerSelection
+        result = ('You win this round! ' + playerSelection + ' beats ' + computerSelection + '!'
             + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
 
         if (playerScore == 5) {
-            result += '<br><br>CONGRATS! You won the game! Reload the page to play again'
+            result += '<br><br>CONGRATULATIONS! You won the game! Reload the page to play again.'
             disableButtons()
         }
     }
     else if (playerSelection == computerSelection) {
-        result = ('It\'s a tie. You and the computer both chose ' + playerSelection
+        result = ('It\'s a tie! You and the computer both chose ' + playerSelection + '.'
             + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
     }
     else {
         computerScore += 1
-        result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
+        result = ('You lose! ' + computerSelection + ' beats ' + playerSelection + '!'
             + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
 
         if (computerScore == 5) {
-            result += '<br><br>You LOST! HAHAHAHA! Reload the page to play again'
+            result += '<br><br>You LOST! HAHAHAHA! Reload the page to play again, LOSER!'
             disableButtons()
         }
     }

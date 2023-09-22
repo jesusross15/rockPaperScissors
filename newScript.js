@@ -10,6 +10,14 @@ function computerPlay() {
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
+// Function that disables buttons after either the player or computer have won the game
+// Keeps player from aimlessly clicking buttons and making the code run after the game is already over
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
+
 // Function that plays a single round of RPS
 // Function has 2 parameters playerSelection and computerSelection
 // If (here we have the different possible outcomes of the game)
@@ -18,12 +26,6 @@ function computerPlay() {
 // When a player wins a round they gain a point
 // You win! 
 // You lose! 
-
-function disableButtons() {
-    buttons.forEach(elem => {
-        elem.disabled = true
-    })
-}
 
 function playRound(playerSelection) {
     let computerSelection = computerPlay()
@@ -61,6 +63,7 @@ function playRound(playerSelection) {
     return
 }
 
+// Event listener that "listens" for when the player clicks one of the 3 buttons and runs the code
 buttons.forEach(button =>{
     button.addEventListener('click', function(){
         playRound(button.id)
